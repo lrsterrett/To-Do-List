@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    cursor: default;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainContent {
+    margin: 100px auto;
+    max-width: 750px;
+    padding: 10px;
+}
+
+.inputWrapper {
+    margin: 10px 0;
+    height: 30px;
+    display: flex;
+}
+
+.newTaskInputField {
+    font-size: 1em;
+    width: 70%;
+    height: 100%;
+    border: solid black 1px;
+    padding: 3px;
+    margin-right: 10px;
+}
+
+.newTaskInputField:focus {
+    cursor: text;
+}
+
+.taskOutput {
+    padding: 5px;
+    min-height: 200px;
+    border: solid black 1px;
+}
+
+/*===========================================
+            Buttons
+==========================================*/
+
+button {
+    transition: opacity .3s ease-out;
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+
+button:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+
+.addTask,
+.prioritizeTheList,
+.clearCompletedTasks {
+    height: 100%;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 3px;
+}
+
+.addTask {
+    width: 50px;
+    margin-right: 5px;
+    background-color: forestgreen;
+}
+
+.prioritizeTheList {
+    width: 125px;
+    margin-left: auto;
+    background-color: dodgerblue;
+}
+
+.clearCompletedTasksWrapper {
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+}
+.clearCompletedTasks {
+    background-color: red;
+    padding: 5px;
+}
+
+/*===========================================
+            List Items
+==========================================*/
+
+.task {
+    list-style-type: none;
+    margin: 7px 0;
+    position: relative;
+    display: flex;
+    max-width: 100%;
+}
+
+.task span {
+    position: relative;
+}
+
+.editTaskInputField {
+    font-size: 1em;
+    width: 70%;
+    margin-right: 10px;
+}
+
+.editTaskInputField:focus {
+    cursor: text;
+}
+
+.checkbox {
+    position: absolute;
+    top: 2px;
+}
+
+@keyframes strikethrough {
+    0% {width: 0}
+    100% {width: 100%}
+}
+
+/* Workaround animation for checking off list item
+    Cannot use transition on text-decoration: line-through */
+.checkbox:checked ~ span:after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: black;
+    animation-name: strikethrough;
+    animation-duration: .2s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+/*===========================================
+            List Item - Buttons
+==========================================*/
+
+.priorityLevel {
+    color: white;
+    min-width: 50px;
+    height: 18px;
+    margin: 0 10px 0 19px;
+}
+
+.high {
+    background-color: red;
+}
+
+.med {
+    background-color: darkorange;
+}
+
+.low {
+    background-color: green;
+}
+
+.edit,
+.save,
+.delete {
+    height: 18px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: .8em;
+    background-color: dodgerblue;
+}
+
+.edit,
+.save {
+    margin-left: auto;
+    margin-right: 5px;
+    min-width: 40px;
+}
+
+.delete {
+    right: 0;
+    padding: 0 3px;
+}
